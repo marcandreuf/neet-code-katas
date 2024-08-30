@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Neet Code Katas",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"dockerComposeFile": "../docker/docker-compose.yml",
+	"service": "dev",
+	"workspaceFolder": "/workspace",
+	"shutdownAction": "stopCompose",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+	"mounts": [
+		"source=/home/madpad/.gitconfig-itql,target=/home/node/.gitconfig,type=bind,consistency=cached",
+		"source=/home/madpad/.ssh/id_ed25519_itqualab,target=/home/node/.ssh/id_ed25519_gh,type=bind,consistency=cached"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"extensions.ignoreRecommendations": true
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"sourcegraph.cody-ai",
+				"esbenp.prettier-vscode",
+				"fallenmax.mithril-emmet",
+				"orta.vscode-jest"
+			]
+		}
+	}
+}
